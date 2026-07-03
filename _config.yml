@@ -6,7 +6,7 @@ title: Ahmed Hamouda Elsayed # the website title (if blank, full name will be us
 first_name: Ahmed
 middle_name: Hamouda
 last_name: Elsayed
-contact_note:
+contact_note: ""
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   MSc student in Engineering Physics based in Cairo, Egypt, with research interests in
   superconducting qubits, Circuit QED, quantum information, waveguide QED, and microwave
