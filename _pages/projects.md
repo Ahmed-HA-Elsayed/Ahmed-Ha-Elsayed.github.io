@@ -63,7 +63,23 @@ Selected research and engineering projects in quantum devices, MEMS sensing, cos
   }
 
   .projects .projects-list .card-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     padding: 1.1rem 1.25rem;
+  }
+
+  .projects .projects-list .project-card-link {
+    color: inherit;
+  }
+
+  .projects .projects-list .project-card-link:hover {
+    text-decoration: none;
+  }
+
+  .projects .projects-list .project-media {
+    display: block;
+    height: 100%;
   }
 
   .projects .projects-list .card-title {
@@ -76,6 +92,21 @@ Selected research and engineering projects in quantum devices, MEMS sensing, cos
     margin-bottom: 0;
     font-size: 0.95rem;
     line-height: 1.6;
+  }
+
+  .projects .projects-list .project-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+    padding-top: 0.85rem;
+  }
+
+  .projects .projects-list .project-actions .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    width: auto;
   }
 
   @media (max-width: 767px) {
@@ -107,7 +138,7 @@ Selected research and engineering projects in quantum devices, MEMS sensing, cos
         <div class="container">
           <div class="row row-cols-1 projects-list">
             {% for project in sorted_projects %}
-              {% include projects_horizontal.liquid %}
+              {% include project_list_item.liquid %}
             {% endfor %}
           </div>
         </div>
@@ -125,7 +156,7 @@ Selected research and engineering projects in quantum devices, MEMS sensing, cos
       <div class="container">
         <div class="row row-cols-1 projects-list">
           {% for project in sorted_projects %}
-            {% include projects_horizontal.liquid %}
+            {% include project_list_item.liquid %}
           {% endfor %}
         </div>
       </div>

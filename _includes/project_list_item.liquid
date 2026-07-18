@@ -1,0 +1,44 @@
+<div class="col mb-4">
+  <div class="card h-100 hoverable">
+    <div class="row no-gutters">
+      {% if project.img %}
+        <div class="col-md-6">
+          <a
+            class="project-card-link project-media"
+            href="{% if project.redirect %}{{ project.redirect }}{% else %}{{ project.url | relative_url }}{% endif %}"
+            aria-label="View {{ project.title }}"
+          >
+            {% include figure.liquid loading="eager" path=project.img sizes="(min-width: 768px) 250px, 100vw" alt=project.title class="card-img" %}
+          </a>
+        </div>
+      {% endif %}
+      <div class="{% if project.img %}col-md-6{% else %}col-md-12{% endif %}">
+        <div class="card-body">
+          <a
+            class="project-card-link"
+            href="{% if project.redirect %}{{ project.redirect }}{% else %}{{ project.url | relative_url }}{% endif %}"
+          >
+            <h3 class="card-title">{{ project.title }}</h3>
+          </a>
+          <p class="card-text">{{ project.description }}</p>
+          {% if project.paper or project.github %}
+            <div class="project-actions">
+              {% if project.paper %}
+                <a class="btn btn-sm btn-outline-primary" href="{{ project.paper }}" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+                  Paper
+                </a>
+              {% endif %}
+              {% if project.github %}
+                <a class="btn btn-sm btn-outline-primary" href="{{ project.github }}" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i>
+                  Repository
+                </a>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
