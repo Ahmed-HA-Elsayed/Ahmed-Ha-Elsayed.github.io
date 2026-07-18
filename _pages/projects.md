@@ -94,6 +94,18 @@ Selected research and engineering projects in quantum devices, MEMS sensing, cos
     line-height: 1.6;
   }
 
+  .projects .projects-list .project-tools {
+    margin: 0.75rem 0 0;
+    color: var(--global-text-color-light);
+    font-size: 0.84rem;
+    line-height: 1.5;
+  }
+
+  .projects .projects-list .project-tools strong {
+    color: var(--global-text-color);
+    font-weight: 500;
+  }
+
   .projects .projects-list .project-actions {
     display: flex;
     flex-wrap: wrap;
