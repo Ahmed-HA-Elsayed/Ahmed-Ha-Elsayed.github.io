@@ -6,10 +6,94 @@ description: Research and technical projects.
 nav: true
 nav_order: 3
 display_categories: [research]
-horizontal: false
+horizontal: true
 ---
 
 Selected research and engineering projects in quantum devices, MEMS sensing, cosmological inference, and digital IC implementation.
+
+<style>
+  .projects .projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1.5rem 0 0;
+  }
+
+  .projects .projects-list > .col {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .projects .projects-list .card {
+    overflow: hidden;
+  }
+
+  .projects .projects-list .card > .row {
+    display: grid;
+    grid-template-columns: minmax(180px, 30%) minmax(0, 1fr);
+    margin: 0;
+  }
+
+  .projects .projects-list .card > .row > [class*="col-md-"] {
+    width: auto;
+    max-width: none;
+    padding: 0;
+  }
+
+  .projects .projects-list .card > .row > .col-md-12 {
+    grid-column: 1 / -1;
+  }
+
+  .projects .projects-list figure,
+  .projects .projects-list picture {
+    display: block;
+    height: 100%;
+    margin: 0;
+  }
+
+  .projects .projects-list .card-img {
+    width: 100%;
+    height: 100%;
+    min-height: 190px;
+    max-height: 230px;
+    object-fit: contain;
+    padding: 0.75rem;
+    background: var(--global-card-bg-color);
+  }
+
+  .projects .projects-list .card-body {
+    padding: 1.1rem 1.25rem;
+  }
+
+  .projects .projects-list .card-title {
+    margin-bottom: 0.55rem;
+    font-size: 1.2rem;
+    line-height: 1.35;
+  }
+
+  .projects .projects-list .card-text {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 767px) {
+    .projects .projects-list .card > .row {
+      grid-template-columns: 1fr;
+    }
+
+    .projects .projects-list .card-img {
+      height: 170px;
+      min-height: 0;
+      max-height: 170px;
+    }
+
+    .projects .projects-list .card-body {
+      padding: 1rem;
+    }
+  }
+</style>
 
 <div class="projects">
   {% if site.enable_project_categories and page.display_categories %}
@@ -21,7 +105,7 @@ Selected research and engineering projects in quantum devices, MEMS sensing, cos
       {% assign sorted_projects = categorized_projects | sort: "importance" %}
       {% if page.horizontal %}
         <div class="container">
-          <div class="row row-cols-1 row-cols-md-2">
+          <div class="row row-cols-1 projects-list">
             {% for project in sorted_projects %}
               {% include projects_horizontal.liquid %}
             {% endfor %}
@@ -39,7 +123,7 @@ Selected research and engineering projects in quantum devices, MEMS sensing, cos
     {% assign sorted_projects = site.projects | sort: "importance" %}
     {% if page.horizontal %}
       <div class="container">
-        <div class="row row-cols-1 row-cols-md-2">
+        <div class="row row-cols-1 projects-list">
           {% for project in sorted_projects %}
             {% include projects_horizontal.liquid %}
           {% endfor %}
